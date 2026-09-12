@@ -1,0 +1,45 @@
+// App.jsx — Admin-only app. Deployed at a separate, unadvertised URL.
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { AuthProvider } from "./context/AuthContext";
+import ProtectedRoute from "./components/ProtectedRoute";
+
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Dashboard from "./pages/Dashboard";
+import ManageTeachers from "./pages/ManageTeachers";
+import TeacherForm from "./pages/TeacherForm";
+
+function App() {
+  // Set VITE_ALLOW_ADMIN_REGISTER=false in this app's .env (or Vercel env vars)
+  // once you've created your one Admin account, to fully remove /register.
+  const allowRegister = import.meta.env.VITE_ALLOW_ADMIN_REGISTER !== "false";
+
+  return (
+    <AuthProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          {allowRegister && <Route path="/register" element={<Register />} />}
+
+          <Route path="/dashboard" element={
+            <ProtectedRoute><Dashboard /></ProtectedRoute>
+          } />
+          <Route path="/teachers" element={
+            <ProtectedRoute><ManageTeachers /></ProtectedRoute>
+          } />
+          <Route path="/teachers/add" element={
+            <ProtectedRoute><TeacherForm /></ProtectedRoute>
+          } />
+          <Route path="/teachers/edit/:id" element={
+            <ProtectedRoute><TeacherForm /></ProtectedRoute>
+          } />
+
+          <Route path="*" element={<Login />} />
+        </Routes>
+      </BrowserRouter>
+    </AuthProvider>
+  );
+}
+
+export default App;
