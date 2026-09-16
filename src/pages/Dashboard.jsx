@@ -14,10 +14,30 @@ const Dashboard = () => {
           </p>
         </div>
 
-        <Link
-          to="/teachers"
-          className="block bg-white rounded-xl shadow-sm border border-slate-200 p-5 hover:border-brand-400 hover:shadow-md transition"
-        >
+      <Link to="/students" className="block bg-white rounded-xl shadow-sm border border-slate-200 p-5 hover:border-brand-400 hover:shadow-md transition">
+            <h3 className="font-semibold text-brand-700">Manage Students</h3>
+            <p className="text-sm text-slate-500 mt-1">Add, edit, search, or remove student accounts.</p>
+          </Link>
+
+          <Link to="/teachers" className="block bg-white rounded-xl shadow-sm border border-slate-200 p-5 hover:border-brand-400 hover:shadow-md transition">
+            <h3 className="font-semibold text-brand-700">Manage Teachers</h3>
+            <p className="text-sm text-slate-500 mt-1">Add, edit, search, or remove teacher accounts.</p>
+          </Link>
+
+          <Link to="/attendance/take" className="block bg-white rounded-xl shadow-sm border border-slate-200 p-5 hover:border-brand-400 hover:shadow-md transition">
+            <h3 className="font-semibold text-brand-700">Take Attendance</h3>
+            <p className="text-sm text-slate-500 mt-1">Mark today's (or any date's) attendance by class.</p>
+          </Link>
+
+          <Link to="/attendance/records" className="block bg-white rounded-xl shadow-sm border border-slate-200 p-5 hover:border-brand-400 hover:shadow-md transition">
+            <h3 className="font-semibold text-brand-700">Attendance Records</h3>
+            <p className="text-sm text-slate-500 mt-1">Browse & filter historical attendance, view rankings.</p>
+          </Link>
+
+          <Link to="/admins" className="block bg-white rounded-xl shadow-sm border border-slate-200 p-5 hover:border-brand-400 hover:shadow-md transition">
+            <h3 className="font-semibold text-brand-700">Manage Admins</h3>
+            <p className="text-sm text-slate-500 mt-1">Add or remove other administrator accounts.</p>
+          </Link>
           <h3 className="font-semibold text-brand-700">Manage Teachers</h3>
           <p className="text-sm text-slate-500 mt-1">Add, edit, search, or remove teacher accounts.</p>
         </Link>
