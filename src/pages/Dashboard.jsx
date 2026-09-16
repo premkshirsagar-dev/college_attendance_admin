@@ -1,4 +1,3 @@
-// pages/Dashboard.jsx
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 
@@ -23,7 +22,6 @@ const Dashboard = () => {
         {/* Dashboard Options */}
         <div className="grid sm:grid-cols-2 gap-4">
 
-          {/* Students */}
           <Link
             to="/students"
             className="block bg-white rounded-xl shadow-sm border border-slate-200 p-5 hover:border-brand-400 hover:shadow-md transition"
@@ -36,7 +34,6 @@ const Dashboard = () => {
             </p>
           </Link>
 
-          {/* Teachers */}
           <Link
             to="/teachers"
             className="block bg-white rounded-xl shadow-sm border border-slate-200 p-5 hover:border-brand-400 hover:shadow-md transition"
@@ -49,7 +46,6 @@ const Dashboard = () => {
             </p>
           </Link>
 
-          {/* Take Attendance */}
           <Link
             to="/attendance/take"
             className="block bg-white rounded-xl shadow-sm border border-slate-200 p-5 hover:border-brand-400 hover:shadow-md transition"
@@ -62,7 +58,6 @@ const Dashboard = () => {
             </p>
           </Link>
 
-          {/* Attendance Records */}
           <Link
             to="/attendance/records"
             className="block bg-white rounded-xl shadow-sm border border-slate-200 p-5 hover:border-brand-400 hover:shadow-md transition"
@@ -75,7 +70,6 @@ const Dashboard = () => {
             </p>
           </Link>
 
-          {/* Manage Admins */}
           <Link
             to="/admins"
             className="block bg-white rounded-xl shadow-sm border border-slate-200 p-5 hover:border-brand-400 hover:shadow-md transition"
