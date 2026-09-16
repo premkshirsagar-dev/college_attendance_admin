@@ -1,5 +1,4 @@
-// App.jsx — Admin-only app. Deployed at a separate, unadvertised URL.
-
+// App.jsx — Admin-only app.
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -9,10 +8,14 @@ import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import ManageTeachers from "./pages/ManageTeachers";
 import TeacherForm from "./pages/TeacherForm";
+import ManageAdmins from "./pages/ManageAdmins";
+import AdminForm from "./pages/AdminForm";
+import ManageStudents from "./pages/ManageStudents";
+import StudentForm from "./pages/StudentForm";
+import TakeAttendance from "./pages/TakeAttendance";
+import AttendanceRecords from "./pages/AttendanceRecords";
 
 function App() {
-  // Set VITE_ALLOW_ADMIN_REGISTER=false in this app's .env (or Vercel env vars)
-  // once you've created your one Admin account, to fully remove /register.
   const allowRegister = import.meta.env.VITE_ALLOW_ADMIN_REGISTER !== "false";
 
   return (
@@ -22,18 +25,22 @@ function App() {
           <Route path="/login" element={<Login />} />
           {allowRegister && <Route path="/register" element={<Register />} />}
 
-          <Route path="/dashboard" element={
-            <ProtectedRoute><Dashboard /></ProtectedRoute>
-          } />
-          <Route path="/teachers" element={
-            <ProtectedRoute><ManageTeachers /></ProtectedRoute>
-          } />
-          <Route path="/teachers/add" element={
-            <ProtectedRoute><TeacherForm /></ProtectedRoute>
-          } />
-          <Route path="/teachers/edit/:id" element={
-            <ProtectedRoute><TeacherForm /></ProtectedRoute>
-          } />
+          <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+
+          <Route path="/teachers" element={<ProtectedRoute><ManageTeachers /></ProtectedRoute>} />
+          <Route path="/teachers/add" element={<ProtectedRoute><TeacherForm /></ProtectedRoute>} />
+          <Route path="/teachers/edit/:id" element={<ProtectedRoute><TeacherForm /></ProtectedRoute>} />
+
+          <Route path="/admins" element={<ProtectedRoute><ManageAdmins /></ProtectedRoute>} />
+          <Route path="/admins/add" element={<ProtectedRoute><AdminForm /></ProtectedRoute>} />
+          <Route path="/admins/edit/:id" element={<ProtectedRoute><AdminForm /></ProtectedRoute>} />
+
+          <Route path="/students" element={<ProtectedRoute><ManageStudents /></ProtectedRoute>} />
+          <Route path="/students/add" element={<ProtectedRoute><StudentForm /></ProtectedRoute>} />
+          <Route path="/students/edit/:id" element={<ProtectedRoute><StudentForm /></ProtectedRoute>} />
+
+          <Route path="/attendance/take" element={<ProtectedRoute><TakeAttendance /></ProtectedRoute>} />
+          <Route path="/attendance/records" element={<ProtectedRoute><AttendanceRecords /></ProtectedRoute>} />
 
           <Route path="*" element={<Login />} />
         </Routes>
