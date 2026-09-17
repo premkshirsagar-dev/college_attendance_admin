@@ -97,11 +97,12 @@ const ManageStudents = () => {
                   <th className="px-6 py-3 font-medium">Name</th>
                   <th className="px-6 py-3 font-medium">Father's Name</th>
                   <th className="px-6 py-3 font-medium">Class</th>
+                  <th className="px-6 py-3 font-medium text-right">Actions</th>
                 </tr>
               </thead>
               <tbody>
                 {students.length === 0 && (
-                  <tr><td colSpan={4} className="px-6 py-8 text-center text-slate-400">No students found.</td></tr>
+                  <tr><td colSpan={5} className="px-6 py-8 text-center text-slate-400">No students found.</td></tr>
                 )}
                 {students.map((s) => (
                   <tr key={s._id} className="border-t border-slate-100">
@@ -109,8 +110,11 @@ const ManageStudents = () => {
                     <td className="px-6 py-3 font-medium">{s.name}</td>
                     <td className="px-6 py-3 text-slate-500">{s.fatherName || "—"}</td>
                     <td className="px-6 py-3">{s.class}</td>
+                    <td className="px-6 py-3 text-right space-x-3 whitespace-nowrap">
+                      <Link to={`/students/edit/${s._id}`} className="text-brand-600 font-medium">Edit</Link>
+                      <button onClick={() => setDeleteTarget(s)} className="text-red-600 font-medium">Delete</button>
+                    </td>
                   </tr>
-                
                 ))}
               </tbody>
             </table>
