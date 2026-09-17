@@ -1,4 +1,7 @@
 // pages/StudentForm.jsx
+// Shared Add / Edit student form for Admin. No email/password — students
+// log in with just their Student ID. Only Student ID must be unique.
+
 import { useEffect, useState } from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import api from "../api/axios";
@@ -90,24 +93,3 @@ const StudentForm = () => {
                 className="border border-slate-300 rounded-lg px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-brand-500"
               >
                 {CLASS_OPTIONS.map((c) => <option key={c} value={c}>{c}</option>)}
-              </select>
-
-              <button
-                type="submit" disabled={saving}
-                className="bg-brand-600 hover:bg-brand-700 disabled:opacity-60 text-white font-medium py-2.5 rounded-lg transition"
-              >
-                {saving ? "Loading..." : isEdit ? "Save Changes" : "Add Student"}
-              </button>
-            </form>
-          )}
-        </div>
-
-        <Link to="/students" className="text-brand-600 font-medium text-sm mt-6 inline-block">
-          ← Back to Manage Students
-        </Link>
-      </div>
-    </div>
-  );
-};
-
-export default StudentForm;
