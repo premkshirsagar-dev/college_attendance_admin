@@ -130,8 +130,7 @@ const ManageStudents = () => {
         <div className="fixed inset-0 bg-black/40 flex items-center justify-center px-4 z-50">
           <div className="bg-white rounded-xl p-6 max-w-sm w-full">
             <h3 className="font-bold text-slate-800 mb-2">Are you sure you want to delete this student?</h3>
-            <p className="text-sm text-slate-500 mb-6">{deleteTarget.name} ({deleteTarget.enrollmentNumber}) will be permanently removed, along with their attendance records.</p>
-            <div className="flex gap-3 justify-end">
+            <p className="text-sm text-slate-500 mb-6">{deleteTarget.name} ({deleteTarget.studentId}) will be permanently removed, along with their attendance records.</p>            <div className="flex gap-3 justify-end">
               <button onClick={() => setDeleteTarget(null)} className="px-4 py-2 rounded-lg border border-slate-300 text-slate-600">Cancel</button>
               <button onClick={confirmDelete} className="px-4 py-2 rounded-lg bg-red-600 text-white font-medium">Delete</button>
             </div>
