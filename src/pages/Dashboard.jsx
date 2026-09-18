@@ -15,6 +15,11 @@ const Dashboard = () => {
         </div>
 
               <div className="grid sm:grid-cols-2 gap-4">
+            
+          <Link to="/attendance/midway-leavers" className="block bg-white rounded-xl shadow-sm border border-slate-200 p-5 hover:border-brand-400 hover:shadow-md transition">
+            <h3 className="font-semibold text-brand-700">Midway Leavers</h3>
+            <p className="text-sm text-slate-500 mt-1">Students flagged as leaving partway through the day.</p>
+          </Link>
           <Link to="/students" className="block bg-white rounded-xl shadow-sm border border-slate-200 p-5 hover:border-brand-400 hover:shadow-md transition">
             <h3 className="font-semibold text-brand-700">Manage Students</h3>
             <p className="text-sm text-slate-500 mt-1">Add, edit, search, or remove student accounts.</p>
