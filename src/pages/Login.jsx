@@ -36,7 +36,7 @@ const Login = () => {
     <div className="min-h-screen flex items-center justify-center bg-slate-100 px-4">
       <div className="bg-white shadow-md rounded-2xl p-8 w-full max-w-md border border-slate-200">
         <h1 className="text-2xl font-bold text-brand-700 mb-1">Admin Login</h1>
-        <p className="text-slate-500 text-sm mb-6">College Attendance Management System</p>
+        <p className="text-slate-500 text-sm mb-6"> <b> ACMT-</b> Attendance Management System</p>
 
         {message && <div className="mb-4"><Alert type={message.type} message={message.text} /></div>}
 
